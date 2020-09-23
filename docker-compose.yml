@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  api:
+    build:
+      context: .
+    command: yarn start:dev
+    volumes:
+      - .:/car-dealership
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    links:
+      - db
