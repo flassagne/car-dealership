@@ -1,6 +1,7 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {Repository} from 'typeorm';
+import {FindConditions, FindManyOptions, Raw, Repository} from 'typeorm';
+
 import {OwnerDto} from './dto/owner.dto';
 import {Owner} from './owners.entity';
 
@@ -32,7 +33,7 @@ export class OwnersService {
     return owner;
   }
 
-  list(): Promise<Owner[]> {
+  list(conditions?: FindConditions<Owner>): Promise<Owner[]> {
     return this.ownersRepository.find();
   }
 

@@ -1,6 +1,6 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {Repository} from 'typeorm';
+import {FindConditions, Repository} from 'typeorm'
 
 import {Manufacturer} from '../manufacturers/manufacturers.entity';
 import {Owner} from '../owners/owners.entity';
@@ -18,9 +18,7 @@ export class CarsService {
     car.manufacturer = manufacturer;
     car.price = carDto.price;
     car.firstRegistrationDate = carDto.firstRegistrationDate;
-    car.owners = owners
-
-    console.log(car)
+    car.owners = owners;
 
     return this.carsRepository.save(car);
   }
@@ -39,8 +37,8 @@ export class CarsService {
     return car;
   }
 
-  list(): Promise<Car[]> {
-    return this.carsRepository.find();
+  list(conditions?: FindConditions<Car>): Promise<Car[]> {
+    return this.carsRepository.find(conditions);
   }
 
   async update(
