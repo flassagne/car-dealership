@@ -17,8 +17,8 @@ test:
 	yarn test:e2e
 
 
-.PHONY: run
-run:
+.PHONY: demo
+demo:
 	docker-compose up -d
 
 
