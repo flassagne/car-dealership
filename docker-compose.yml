@@ -11,6 +11,11 @@ services:
     build:
       context: .
     command: yarn start:dev
+    environment:
+      - DB_HOST=db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_SYNCHRONIZE=true
     volumes:
       - .:/car-dealership
     ports:
