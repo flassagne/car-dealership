@@ -17,6 +17,11 @@ test:
 	yarn test:e2e
 
 
+.PHONY: coverage
+coverage:
+	yarn test:e2e
+
+
 .PHONY: demo
 demo:
 	docker-compose up -d
