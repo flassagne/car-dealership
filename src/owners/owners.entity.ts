@@ -1,4 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+
+import {Car} from '../cars/cars.entity';
 
 @Entity()
 export class Owner {
@@ -7,4 +9,9 @@ export class Owner {
   @Column() name: string;
 
   @Column() purchaseDate: Date;
+
+  @ManyToOne(type => Car, car => car.owners, {
+    onDelete: 'CASCADE',
+  })
+  car: Car;
 }
