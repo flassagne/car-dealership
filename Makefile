@@ -19,7 +19,7 @@ test:
 
 .PHONY: coverage
 coverage:
-	yarn test:e2e
+	yarn test:cov
 
 
 .PHONY: demo
