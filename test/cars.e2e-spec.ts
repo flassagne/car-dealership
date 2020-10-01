@@ -45,9 +45,9 @@ describe.skip('Cars', () => {
   describe('/POST cars', () => {
     it('should create a car', () => {
       const body: CarDto = {
-        name: 'lamborghini',
         manufacturerID: '5',
         price: 20000,
+        firstRegistrationDate: new Date('2020-09-30'),
         ownersID: ['1']
       };
 
@@ -64,9 +64,9 @@ describe.skip('Cars', () => {
   describe('/PUT cars', () => {
     it('should update a car', () => {
       const body: CarDto = {
-        name: 'lamborghini',
         manufacturerID: '5',
         price: 150000,
+        firstRegistrationDate: new Date('2020-09-30'),
         ownersID: ['1']
       };
 
