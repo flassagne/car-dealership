@@ -57,7 +57,7 @@ describe('CarsService', () => {
         id: manufacturerId,
         name: 'Toyota',
         phone: '+33656547834',
-        siret: faker.random.number,
+        siret: faker.random.number(),
       }
 
       const car = new Car();
