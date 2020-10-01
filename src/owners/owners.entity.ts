@@ -1,14 +1,15 @@
+import {ApiProperty} from '@nestjs/swagger';
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 import {Car} from '../cars/cars.entity';
 
 @Entity()
 export class Owner {
-  @PrimaryGeneratedColumn('uuid') id: string;
+  @ApiProperty() @PrimaryGeneratedColumn('uuid') id: string;
 
-  @Column() name: string;
+  @ApiProperty() @Column() name: string;
 
-  @Column() purchaseDate: Date;
+  @ApiProperty() @Column() purchaseDate: Date;
 
   @ManyToOne(type => Car, car => car.owners, {
     onDelete: 'CASCADE',
